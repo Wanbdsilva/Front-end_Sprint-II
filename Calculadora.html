@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo simples</h1>
+
+    <form onsubmit="Calcular()">
+        <label for="n1">Primeiro Numero</label>
+        <input type="number" id="n1">
+        <br><br>
+        <label for="n2">Segundo Numero</label>
+        <input type="number" id="n2">
+        <br><br>
+
+        <label for="operacao">Operação</label>
+        <select id="operacao">
+            <option value="">Selecione</option>
+            <option value="+">Soma</option>
+            <option value="-">Subtração</option>
+            <option value="/">Divisão</option>
+            <option value="*">Multiplicação</option>
+        </select>
+        <br><br>
+
+        <button>Calcular</button>
+    </form>
+
+    <script>
+        function Calcular() {
+            event.preventDefault(); //parar o submit do formulario
+
+            //criar uma variavel para cada numero
+            let n1 = parseFloat(document.getElementById('n1').value);
+            let n2 = parseFloat(document.getElementById('n2').value);
+            let op = document.getElementById('operacao').value;
+            let resultado;
+
+            if (op == '+') {
+                resultado = somar(n1, n2);
+                alert(`O resultado da soma é: ${resultado}`)
+            }
+            
+            else if (op == '-') {
+                resultado = subtrair(n1, n2);
+                alert(`O resultado da subtração é: ${resultado}`)
+            } 
+            
+            else if (op == '/') {
+                resultado = Divisão(n1, n2);
+                alert(`O resultado da divisão é: ${resultado}`)
+            } 
+            
+            else if (op == '*') {
+                resultado = Multiplicação(n1, n2);
+                alert(`O resultado da multiplicação é: ${resultado}`)
+            }
+
+            //exibir o resultado em um alert - utilizar a interpolação
+            //const resultado = subtrair(n1, n2);
+        }//Fim da funcao calcular
+
+        function somar(n1, n2) {
+            return n1 + n2;
+        }
+
+        function subtrair(n1, n2) {
+            return n1 - n2;
+        }
+
+        function Divisão(n1, n2) {
+            return n1 / n2;
+        }
+
+        function Multiplicação(n1, n2) {
+            return n1 * n2;
+        }
+
+    </script>
+</body>
+</html>
